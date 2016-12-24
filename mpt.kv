@@ -1,0 +1,200 @@
+# encoding: utf-8
+<ScreenManagement>:
+    TelaP:
+    TelaE:
+
+<AndroidTabs>:
+    tab_indicator_height: '4dp'
+    default_tab: 1
+    tab_indicator_color: 0.2,.6,0.2,1
+
+
+<AndroidTabsLabel>:
+    text_color_active: .1, .1, 1, 1
+    text_color_normal: .1, .1, 1, .3
+
+<Botao_Treino@Button>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size:self.size
+    background_color: 1,0,0,1
+    text: "PEITO"
+    font_size: self.width/8
+    size_hint: None, None
+    size: 200, 0
+    on_release: app.root.troca_TelaE()
+
+
+
+<TelaP>:
+    name: 'TelaP'
+    FloatLayout:
+        canvas:
+            Color:
+                rgba:  .2, .6, .2, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+# PAINEL SUPERIOR
+        Label:
+            text: "Musical Personal Trainer"
+            color: 1,1,1,1
+            italic: True
+            bold: True
+            font_size: self.width * .7
+            pos_hint: {"center_x": .48, "center_y": .94}
+            size_hint: .1, .1
+            y: root.height - self.height
+# CONFIGURAÇÕES
+        Button:
+            text: ":"
+            background_color: 0,0,0,0
+            pos_hint: {"center_x": .93, "center_y": .93}
+            size_hint: .1, .1
+#PAINEL INFERIOR
+        Button:
+            background_color: 1,0,0,0
+            canvas:
+                Rectangle:
+                    pos: self.pos
+                    size:self.size
+            size_hint: 1, .15
+            y: 0
+#ABAS
+        AndroidTabs:
+            canvas.before:
+                Color:
+                    rgba:  1,1,1,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            size_hint: 1, .73
+            pos_hint: {"left": 0, "top": .88}
+# MÚSICAS
+            Aba:
+                text: 'MUSICAS'
+                FloatLayout:
+                    canvas.after:
+                        Color:
+                            rgba: 0,0,0,.5
+                        Line:
+                            points: 0,self.height - 1, root.width, self.height - 1
+                            width: 1
+                    Label:
+                        text: "Area de Musica"
+                        color: 0,0,0,1
+                        pos_hint: {"center_x": .5, "center_y": .85}
+                    CheckBox:
+                        pos_hint: {"center_x": .8, "center_y": .5}
+                        active: True
+                    Label:
+                        text: "Usar audio de outro aplicativo"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        color: 0,0,0,1
+
+#TREINOS
+            Aba:
+                text: 'TREINOS'
+                FloatLayout:
+                    canvas.after:
+                        Color:
+                            rgba: 0,0,0,.5
+                        Line:
+                            points: 0,self.height - .1, root.width, self.height - .1
+                            width: 1
+                ScrollView:
+                    size_hint: root.width, None
+                    size: 800, root.height
+
+                    GridLayout:
+                        orientation: "tb-lr"
+                        cols: 1
+                        padding: 5, 200, 5, 50
+                        spacing: 40
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        Button:
+                            text: "TREINO 1"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 2"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 3"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 4"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 5"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 6"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 7"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 8"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 9"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 10"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 11"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 12"
+                            bold: True
+                            background_color: 0,1,0,.3
+                        Button:
+                            text: "TREINO 13"
+                            bold: True
+                            background_color: 0,1,0,.3
+
+
+<TelaE>:
+    name: 'TelaE'
+    FloatLayout:
+        size_hint: 1, .85
+        background_color: 1,0,0,1
+        Button:
+            text: "BACK"
+            font_size: self.width/8
+            size_hint: .1, .1
+            pos_hint: {"center_x": .9, "center_y": .9}
+            on_release: app.root.troca_TelaP()
+        Button:
+            canvas:
+                Rectangle:
+                    source: "images/play.png"
+                    pos: self.pos
+                    size:self.size
+            background_color: 0,0,0,0
+            font_size: self.width/8
+            size_hint: .3, .3
+            pos_hint: {"center_x": .3, "center_y": .5}
+            on_release: app.root.comeca()
+        Button:
+            background_color: 255, 255, 255, 1
+            font_size: self.width/8
+            size_hint: .1, .1
+            pos_hint: {"center_x": .7, "center_y": .5}
+            on_release: app.root.para()
+
