@@ -4,12 +4,8 @@ Aplicativo de teste
 
 
 FAZER:
-    - treinos
-          -add button
-    - exercícios
-    - musica
+    - exercícios (painéis)
     - config
     - funções
-
-android service
-acentos
+    - musica
+    - android service
