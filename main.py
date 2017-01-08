@@ -1,14 +1,16 @@
 # encoding: utf-8
-
 import kivy
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.button import Button
 
 kivy.require("1.9.1")
 from kivy.config import Config
+
 Config.set('graphics', 'width', '280')
 Config.set('graphics', 'height', '490')
 from kivy.garden.androidtabs import *
@@ -37,6 +39,10 @@ class TelaE(Screen):
     pass
 
 
+class MyGrid(GridLayout):
+    pass
+
+
 # classe principal
 class ScreenManagement(ScreenManager):
     def troca_TelaP(self):
@@ -45,9 +51,14 @@ class ScreenManagement(ScreenManager):
     def troca_TelaE(self):
         self.current = 'TelaE'
 
+    def add_button(self):
+        # mygrid.add_widget(Button)
+        print("NOVO TREINO")
+
     # chamada qdo aperta o botao, essa chama a func_temp que so toca uma vez e
     # por sua vez chama a funcao toca que toca as series com o intervalo
     def comeca(self):
+        # aqui deverá ser criado um trigger()???
         Clock.schedule_once(self.temp_func, 0)
 
     def temp_func(self, dt):
@@ -75,3 +86,4 @@ class MPTApp(App):
 
 if __name__ == '__main__':
     MPTApp().run()
+
