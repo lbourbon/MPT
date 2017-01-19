@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+#:import Button kivy.uix.button
 <TelaP>:
     name: 'TelaP'
     FloatLayout:
@@ -98,18 +98,8 @@
                             size_hint_y: None
                             height: 1000
                             Botao_Treino:
-                                text: "SEGUNDA"
-                                on_release: app.root.troca_TelaE()
-                            Botao_Treino:
-                                text: "TREINO 2"
-                                on_release: app.root.troca_TelaE()
-                            Botao_Treino:
-                                text: "PEITO, COSTAS E TRICEPS"
-                                on_release: app.root.troca_TelaE()
-
-                            Botao_Treino:
-                                text: "TREINO 4"
-                                on_release: app.root.troca_TelaE()
+                                text: "NOVO TREINO"
+                                font_size: 24
 
 
 # ADD BUTTON
@@ -117,7 +107,7 @@
                         pos_hint: {"center_x": .86, "center_y": .10}
                         background_color: 0,0,0,0
                         size_hint: .15, .13
-                        on_release: app.root.add_button()
+                        on_release: root.add_button()
                         canvas:
                             Rectangle:
                                 source: "images/addbutton.png"
@@ -164,35 +154,64 @@
                 spacing: 3
                 size_hint_y: None
                 height: 1000
-                Botao_Treino:
-                    text: "SUPINO"
-                    on_release: app.root.troca_TelaE()
-                Botao_Treino:
-                    text: "VOADOR"
-                    on_release: app.root.troca_TelaE()
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
-                Botao_Treino:
+                FloatLayout:
+                    canvas:
+                        Color:
+                            rgba: 1,0,0,1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    size_hint: 1, None
+                    height: 50
+                    FloatLayout:
+                        canvas:
+                            Color:
+                                rgba: 0,0,0,1
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        size_hint: 1, None
+                        height: 48
+                        pos_hint: {'x': 0, 'center_y':.5}
+                    Label:
+                        text: "Exerc\u00edcio"
+                        bold: True
+                        font_size: '16dp'
+                        pos_hint: {"center_x": .15, "center_y": .5}
+                    Label:
+                        text: "S\u00e9ries"
+                        bold: True
+                        font_size: '16dp'
+                        pos_hint: {"center_x": .45, "center_y": .5}
+                    Label:
+                        text: "Repet."
+                        bold: True
+                        font_size: '16dp'
+                        pos_hint: {"center_x": .65, "center_y": .5}
+                    Label:
+                        text: "Interv."
+                        bold: True
+                        font_size: '16dp'
+                        pos_hint: {"center_x": .85, "center_y": .5}
+                    Button:
+
+                Painel_Exercicio:
+                Painel_Exercicio:
+                Painel_Exercicio:
+                Painel_Exercicio:
+                Painel_Exercicio:
+                Painel_Exercicio:
+                Painel_Exercicio:
+                Painel_Exercicio:
         Button:
             canvas:
                 Rectangle:
-                    source: "images/play.png"
+                    source: "images/player.png"
                     pos: self.pos
                     size:self.size
             font_size: self.width/8
-            size_hint: .1, .1
-            pos_hint: {"center_x": .4, "center_y": .12}
+            size_hint: 1, .1
+            pos_hint: {"center_x": .5, "center_y": 0}
             on_release: app.root.comeca()
         Button:
             background_color: 255, 255, 255, 1
@@ -233,10 +252,46 @@
     text_color_active: .1, .1, 1, 1
     text_color_normal: .1, .1, 1, .3
 
+<Painel_Exercicio@FloatLayout>
+    canvas:
+        Color:
+            rgba: 1,0,0,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint: 1, None
+    height: 50
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: 0,0,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        size_hint: 1, None
+        height: 48
+        pos_hint: {'x': 0, 'center_y':.5}
+        Label:
+            text: " Nome"
+            font_size: '16dp'
+            pos_hint: {"center_x": .15, "center_y": .5}
+        Label:
+            text: "03"
+            font_size: '16dp'
+            pos_hint: {"center_x": .45, "center_y": .5}
+        Label:
+            text: "10"
+            font_size: '16dp'
+            pos_hint: {"center_x": .65, "center_y": .5}
+        Label:
+            text: "60s"
+            font_size: '16dp'
+            pos_hint: {"center_x": .85, "center_y": .5}
+
+
 <Botao_Treino@Button>:
     background_color: 0,1,0,.7
     bold: True
-    font_size: self.width/12
     size_hint: 1, None
     size: 200, 50
     on_release: app.root.troca_TelaE()
