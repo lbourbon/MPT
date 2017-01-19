@@ -8,6 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 
+
 kivy.require("1.9.1")
 from kivy.config import Config
 
@@ -29,9 +30,13 @@ series = 10
 intervalo = 60
 
 
+
 # tela principal
 class TelaP(Screen):
-    pass
+    def add_button(MyGrid):
+        MyGrid.ids.mygrid.add_widget(Button(text = 'NOVO TREINO', background_color=(0, 1, 0, .7),
+                      bold=True, font_size=24,
+                      size_hint=(1, None), size=(200, 50)))
 
 
 # tela dos exercicios
@@ -86,4 +91,3 @@ class MPTApp(App):
 
 if __name__ == '__main__':
     MPTApp().run()
-
